@@ -1,0 +1,24 @@
+load("@contrib_rules_jvm//java:defs.bzl", "java_junit5_test")
+
+java_junit5_test(
+    name = "ExampleTest",
+    srcs = ["src/test/com/github/bazel_contrib/contrib_rules_jvm/examples/tests_and_lints/ExampleTest.java"],
+    env_inherit = [
+        "",
+    ],
+    shard_count = 10,
+    test_class = "com.github.bazel_contrib.contrib_rules_jvm.examples.tests_and_lints.ExampleTest",
+    runtime_deps = [
+        "@maven//:org_junit_jupiter_junit_jupiter_engine",
+        "@maven//:org_junit_platform_junit_platform_reporting",
+        "@maven//:org_junit_platform_junit_platform_suite",
+        "@maven//:org_junit_platform_junit_platform_suite_api",
+    ],
+    deps = [
+        "@maven//:org_junit_jupiter_junit_jupiter_api",
+        "@maven//:org_junit_jupiter_junit_jupiter_params",
+
+        #        "@maven//:org_junit_jupiter_junit_platform_launcher",
+        #        "@maven//:org_junit_jupiter_junit_platform_reporting",
+    ],
+)
